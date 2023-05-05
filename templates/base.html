@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <!-- site metas -->
+    <title>Mega</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'mega/css/bootstrap.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'mega/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'mega/css/responsive.css' %}" />
+    {% comment %} {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{% static 'mega/css/jquery.mCustomScrollbar.min.css' %}"
+    />
+    <!-- Tweaks for older IEs-->
+    {% comment %}
+    <link
+      rel="stylesheet"
+      href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    />
+    {% endcomment %} {% comment %}
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen"
+    />
+    {% endcomment %}
+    <link rel="stylesheet" href="{% static 'mega/scroll/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'mega/css/animate.min.css' %}" />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'mega/css/normalize.css' %}" />
+    {% endcomment %} {% comment %}
+    <link rel="stylesheet" href="{% static 'mega/css/icomoon.css' %}" />
+    {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="{% static 'mega/css/font-awesome.min.css' %}"
+    />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'mega/css/meanmenu.css' %}" />
+    {% endcomment %}
+    <link
+      rel="stylesheet"
+      href="{% static 'mega/css/owl.carousel.min.css' %}"
+    />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'mega/css/swiper.css' %}" />
+    {% endcomment %}
+    <link rel="stylesheet" href="{% static 'mega/css/slick.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'mega/css/jquery.fancybox.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'mega/css/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'mega/css/nice-select.css' %}" />
+
+    {% block css_files %}{% endblock %}
+  </head>
+  <!-- body -->
+  <body class="main-layout">
+    {% block body_files %}{% endblock %} {% include 'partials/footer.html' %}
+    {%block js_files %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="{% static 'mega/js/jquery.min.js' %}"></script>
+    <script src="{% static 'mega/js/popper.min.js' %}"></script>
+    <script src="{% static 'mega/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'mega/js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'mega/scroll/scroll.js' %}"></script>
+    <!-- sidebar -->
+    <script src="{% static 'mega/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'mega/js/custom.js' %}"></script>
+  </body>
+</html>

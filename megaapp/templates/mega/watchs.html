@@ -1,0 +1,230 @@
+{% extends 'base.html' %} {% load static %} {% block css_files %}<link
+  rel="stylesheet"
+  href="{% static 'mega/css/mega/glass.css' %}"
+/>
+<link rel="stylesheet" href="{% static 'mega/css/mega/checkbox.css' %}" />
+<link href="{% static 'glightbox/css/glightbox.css' %}" rel="stylesheet" />
+{% endblock %} {% block body_files %}
+
+<div class="position_head">
+  <div class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+          <div class="full">
+            <div class="center-desk">
+              <div class="logo">
+                <a href="{% url 'index' %}"
+                  ><img
+                    src="{% static 'mega/images/png/logo-no-background.png' %}"
+                    alt="#"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+          <nav class="navigation navbar navbar-expand-md navbar-dark">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarsExample04"
+              aria-controls="navbarsExample04"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample04">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'index' %}">Anasayfa</a>
+                </li>
+                {% comment %}
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">Hakkımızda</a>
+                </li>
+                {% endcomment %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'glasses' %}">Gözlük</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'watchs' %}">Saat</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'coffes' %}">Kahve</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end header inner -->
+<!-- end header -->
+<!-- Our  Glasses section -->
+<div class="glasses">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="titlepage">
+          <h2>Saatlerimiz</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labor e et dolore magna aliqua. Ut enim
+            ad minim veniam, qui
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="overlay" onclick="filterPanelFunc()">&nbsp;</div>
+  <div
+    class="filter-panel"
+    style="
+      position: absolute;
+      transition: all 0.3s linear;
+      z-index: 23;
+      width: 70%;
+      max-width: 300px;
+      top: 0;
+    "
+  >
+    {% include 'mega/filter.html' %}
+    <div
+      class="filter-close"
+      style="
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        background-color: red;
+        color: white;
+        padding: 5px;
+        border-radius: 50%;
+      "
+      onclick="filterPanelFunc()"
+    >
+      X
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div
+        style="
+          color: white;
+          position: sticky;
+          top: 50px;
+          z-index: 1;
+          width: 25px;
+        "
+      >
+        <div
+          onclick="filterPanelFunc()"
+          style="
+            display: flex;
+            color: white;
+            background-color: #00cafc;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <img
+            src="{% static 'mega/images/filter.png' %}"
+            style="width: 25px; height: 25px"
+          />
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="glass_list row">
+          {% for watch in watchs %}
+
+          <div class="glass_main col-xl-3 col-lg-3 col-md-4 col-sm-6">
+            <div class="glass_item row">
+              <div class="glass_item_image__div col-12">
+                <a href="/images/{{watch.image}}" class="glightbox">
+                  <img
+                    class="glass_item_image__image"
+                    style="height: 100%"
+                    src="/images/{{watch.image}}"
+                    alt="#"
+                  />
+                </a>
+              </div>
+              <div class="glass_item_description col-10">
+                <div class="row">
+                  <div class="glass_item_description__brand col-6">
+                    {{watch.brand}}
+                  </div>
+                  <div
+                    class="glass_item_description__category col-6"
+                    style="text-align: right"
+                  >
+                    {{watch.category}}
+                  </div>
+                  <div class="glass_item_description__title col-md-12">
+                    {{watch.title}}
+                  </div>
+                  {% comment %}
+                  <div class="glass_item_description__description col-md-12">
+                    {{glass.description|safe |truncatechars:350}}
+                  </div>
+                  {% endcomment %}
+                  <div class="glass_item_description__price col-md-12">
+                    {{watch.price}} TL
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+          <!-- <div class="col-md-12">
+                  <a class="read_more" href="#">Hakkımızda</a>
+               </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  footer -->
+
+<!-- end footer -->
+{% endblock %} {%block js_files %}
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+<script src="{% static 'glightbox/js/glightbox.js'%}"></script>
+<script>
+  var filterShow = true;
+  var filterPanelFunc = () => {
+    filterShow = !filterShow;
+    document.getElementsByClassName("filter-panel")[0].style.transform =
+      filterShow ? "translateX(0)" : "translateX(-100%)";
+    document.getElementById("overlay").style.display = filterShow
+      ? "block"
+      : "none";
+    console.log("filterPanelFunc");
+    window.scroll(
+      0,
+      document.getElementsByClassName("filter-panel")[0].getBoundingClientRect()
+        .top - document.body.getBoundingClientRect().top
+    );
+  };
+  filterPanelFunc();
+  var lightbox = GLightbox();
+  lightbox.on("open", (target) => {
+    console.log("lightbox opened");
+  });
+  var lightboxDescription = GLightbox({
+    selector: ".glightbox2",
+  });
+  var lightboxVideo = GLightbox({
+    selector: ".glightbox3",
+  });
+</script>
+{% endblock %}

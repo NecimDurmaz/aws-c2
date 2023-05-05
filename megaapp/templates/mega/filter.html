@@ -1,0 +1,72 @@
+<div class="filter__main" >
+    <div class="filter__main__title">Filtre</div>
+<form method="GET" action="">
+    <div class="row">
+      <div class="row">
+        <div class="col-md-12 filter__title">Kategoriler</div>
+        <div class="col-md-12 filter_body">
+          <div class="filter_item">
+            <label class="pure-material-checkbox">
+              <input type="radio" name="category" checked  />
+              <span>Hepsi</span>
+            </label>
+          </div>
+          {% for category in categories %}
+          <div class="filter_item">
+            <label class="pure-material-checkbox">
+              <input type="radio" name="category" {% if category.id == filterCategory|add:0 %} checked {% endif %} value={{category.id}}  />
+              <span>{{category.title}}</span>
+            </label>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row">
+        <div class="col-md-12 filter__title">Markalar</div>
+        <div class="col-md-12 filter_body">
+          <div class="filter_item">
+            <label class="pure-material-checkbox">
+              <input type="radio" name="brand"  checked />
+              <span>Hepsi</span>
+            </label>
+          </div>
+          {% for brand in brands %}
+          <div class="filter_item">
+            <label class="pure-material-checkbox">
+              <input type="radio"  name="brand" {% if brand.id == filterBrand|add:0 %} checked {% endif %} value={{brand.id}} />
+              <span>{{brand.title}} </span>
+            </label>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row">
+        <div class="col-md-12 filter__title">Fiyat</div>
+        <div class="col-md-12 filter__body">
+          
+          <div class="row">
+            <div class="col-5" style="padding:0" ><input style="width:100%" type="number" min="0" name='minvalue'></div>
+            <div class="col-2">-</div>
+            <div class="col-5" style="padding:0"><input style="width:100%"  type="number" name='maxvalue' min="0"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="submitdivi" style="  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding-bottom: 10px;">
+      
+      <input type="submit" value="Filtrele" style="  background: #00cafc;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;">
+    </div>
+  </div>
+</form>
